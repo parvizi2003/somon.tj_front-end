@@ -1,0 +1,8 @@
+.categories {
+    margin-bottom: 15px;
+}
+.categories-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: start;
+}

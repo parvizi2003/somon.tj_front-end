@@ -1,0 +1,125 @@
+.footer {
+    padding-top: 30px;
+    background: #f0f0f0;
+}
+.footer__top {
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    border-bottom: 1px solid #dadada;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+.footer__top .add-post {
+    margin-left: 0;
+}
+.footer__logo img {
+    width: 215px;
+    height: auto;
+}
+.socials {
+    display: flex;
+    gap: 7px;
+}
+.socials a {
+    width: 35px;
+    height: 35px;
+    display: block;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.socials img {
+    width: 100%;
+    height: 100%;
+}
+.add-post-wrapper {
+    display: flex;
+}
+.footer__app {
+    display: flex;
+    gap: 13px;
+}
+.footer__app a {
+    width: 120px;
+}
+.footer__app img {
+    width: 100%;
+    height: auto;
+}
+.footer__main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.footer__list-item a {
+    display: inline-block;
+    text-decoration: none;
+    color: #0093d3;
+    margin-bottom: 5px;
+}
+.install-app {
+    background: url("https://somon.tj/static/images/install/somon.png?_=201215") no-repeat bottom left;
+    height: 172px;
+    padding-left: 200px;
+    grid-column: span 2;
+}
+.install-app__title {
+    padding-top: 20px;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.install-app__label {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.install-app__form {
+    position: relative;
+}
+.install-app__form::before {
+    content: "+992";
+    position: absolute;
+    top: 0;
+    left: 10px;    
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 35px;
+    border-top: 2px solid transparent;
+    color: #666;
+}
+.install-app__form-input {
+    width: 170px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    color: #666;
+    border-radius: 3px;
+    border-width: 0px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-left: 55px;
+    box-shadow: inset 1px 2px 6px 0 rgba(1,1,1,0.2);
+    letter-spacing: 1px;
+    padding-top: 4px;
+    outline: none; 
+}
+.install-app__form-submit {
+    display: inline-block;
+    color: #000;
+    background-color: #ffcb00;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-size: 20px;
+    font-weight: 700;
+    border: 0;
+    line-height: 36px;
+    height: 35px;
+    padding: 0 12px;
+    margin-right: 21px;
+    cursor: pointer;
+}
