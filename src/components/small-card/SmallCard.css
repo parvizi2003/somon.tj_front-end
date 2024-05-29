@@ -1,0 +1,61 @@
+.smallCard {
+    max-width: 100%;
+    text-decoration: none;
+    color: #000;
+}
+.smallCard:hover {
+    color: #f59413;
+}
+.smallCard:hover .images-count{
+    background-color: #f59413;
+}
+.smallCard__img-container {
+    max-width: 100%;
+    height: 150px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #ebebeb;
+    margin-bottom: 5px;
+    position: relative;
+}
+.images-count {
+    padding: 0 5px 0 23px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #fff;
+    font-size: 11px;
+    line-height: 15px;
+    border-radius: 3px;
+    background: #747474 url('https://somon.tj/static/images/photoapparat.svg') no-repeat 6px 40%;
+    background-size: 11px;
+}
+.smallCard__favourite {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 123px;
+    right: 7px;
+    z-index: 1;
+    background: url('https://somon.tj/static/images/favorites/fav/fav_gray.svg') no-repeat center;
+    transition: .3s;
+}
+.smallCard__favourite:hover {
+    background-image: url('https://somon.tj/static/images/favorites/fav/fav_hover.svg');
+    opacity: .6;
+}
+.smallCard__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.smallCard__title {
+    margin-bottom: 20px;
+}
+.smallCard__price {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.smallCard__name {
+    margin-bottom: 2px;
+}

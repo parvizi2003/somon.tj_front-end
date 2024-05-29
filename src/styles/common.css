@@ -33,12 +33,25 @@
   
 body {
     font-family: 'Roboto', sans-serif;
+    line-height: 1.2;
     overflow-y: scroll;
 }
 .container {
     max-width: 1240px;
     padding:  0 20px;
     margin: 0 auto;
+}
+.page-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+main {
+    width: 870px;
+    margin-bottom: 65px;
+}
+aside {
+    width: 300px;
 }
 .add-post {
     height: 35px;

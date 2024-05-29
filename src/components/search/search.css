@@ -10,15 +10,16 @@
 }
 .inputs-wrapper {
     height: 38px;
-    display: inline-block;
-    padding-left: 8px;
+    display: flex;
+    padding-left: 7px;
+    margin-right: 11px;
     background: #fff;
     box-shadow: inset 1px 1px 4px 0 rgba(0,0,0,0.3);
     border-radius: 5px;
     border: 2px solid #ffcb00;
-    margin-right: 11px;
 }
-.inputs-wrapper input, .inputs-wrapper select{
+.inputs-wrapper input{
+    width: 328px;
     height: 34px;
     line-height: 18px;
     font-size: 18px;
@@ -26,15 +27,9 @@
     border: none;
     outline: none;
 }
-.inputs-wrapper select {
+.dropdown-container {
     width: 210px;
-    padding-left: 6px;
-    border-left: 1px solid #dbdbdb;
-    line-height: 18px;
-    font-size: 18px;
-}   
-.inputs-wrapper input {
-    width: 328px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 .search__form-button {
     width: 162px;
@@ -44,7 +39,6 @@
     text-align: left;
     font-size: 20px;
     font-weight: bold;
-    font-family: 'Roboto';
     background: #ffcb00 url('https://somon.tj/static/images/search-submit-somon.png') no-repeat 10px 8px;
     border: none;
     border-radius: 5px;

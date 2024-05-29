@@ -1,0 +1,31 @@
+.breadcrumbs {
+    width: 100%;
+    padding: 14px 0;
+}
+.breadcrumbs ul {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.breadcrumbs li::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 13px;
+    transform: translateY(20%);
+    margin: 0px 8px;
+    background: url('https://somon.tj/static/images/breadcrumbs-arrow.e8c4af780d72.png') no-repeat;
+}
+.breadcrumbs li:first-child::before {
+    display: none;
+}
+.breadcrumbs a {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #8391a2;
+}
+
+.breadcrumbs a:hover{
+    color: #ea5e00;
+}

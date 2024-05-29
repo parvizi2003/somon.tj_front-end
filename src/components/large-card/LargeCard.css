@@ -1,0 +1,67 @@
+.largeCard {
+    width: 100%;
+    height: 360px;
+    display: flex;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.12);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #000;
+}
+.largeCard__img-container {
+    width: 530px;
+    height: 100%;
+}
+.largeCard__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.largeCard__content {
+    width: 340px;
+    height: 100%;
+    padding: 24px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.largeCard__price {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+}
+.largeCard__name {
+    font-size: 20px;
+    line-height: 26px;
+}
+.largeCard__desc {
+    color: #777;
+    font-size: 14px;
+    line-height: 18px;
+    overflow: hidden;
+    flex: 1;
+}
+.largeCard__hint {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #777;
+    font-size: 14px;
+    line-height: 18px;
+}
+.largeCard__hint-dateNcity {
+    display: flex;
+    flex-direction: column;
+}
+.largeCard__add-favourite {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 1;
+    background-image: url('https://somon.tj/static/images/advert/favorite.svg');
+    background-size: contain;
+    background-position: center;
+}
+.largeCard__add-favourite:hover {
+    background-image: url('https://somon.tj/static/images/advert/favorite_hover.svg');
+}

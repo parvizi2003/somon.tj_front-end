@@ -1,0 +1,61 @@
+.categoryGallery {
+    position: relative;
+}
+.categoryGallery__title {
+    display: block;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+    padding: 20px 0 10px 0;
+}
+.categoryGallery__title:hover {
+    color: #f59413;
+}
+.cards__container {
+    overflow: hidden;
+}
+.cards__arrow {
+    width: 30px;
+    height: 55px;  
+    border-radius: 15px;
+    box-shadow: 0 2px 10px 0 #777;
+    position: absolute;
+    top: 110px;
+    z-index: 1;
+    cursor: pointer;
+}
+.cards__arrow:hover {
+    background-color: #ddd;
+    box-shadow: 0 2px 4px 0 #444;
+    top: 111px;
+}
+.cards__left {
+    background: #ebebeb url('https://somon.tj/static/images/arrow_left.svg') no-repeat center ;
+    left: -15px;
+}
+.cards__right {
+    background: #ebebeb url('https://somon.tj/static/images/arrow_right.svg') no-repeat center ;
+    right: -15px;
+}
+.cards {
+    width: 100%;
+    display: grid;  
+    transition: .5s all;
+    position: relative;
+}
+.more {
+    width: 190px;
+    height: 150px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 150px;
+    border-radius: 5px;
+    background: #ebebeb;
+    position: absolute;
+    right: -200px;
+}
+.more:hover {
+    color: #f59413;
+}

@@ -33,6 +33,7 @@
     top: calc(100% - 4px);
     left: 0;
     right: 0;
+    z-index: 99;
     padding: 15px;
     box-shadow: 0 6px 5px 1px rgba(111,111,111,0.3);
     display: none;

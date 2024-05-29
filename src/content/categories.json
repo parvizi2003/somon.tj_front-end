@@ -1,0 +1,249 @@
+{
+    "nedvizhimost" : {
+      "src": "https://cdn.somon.tj/media/re-sale.png",
+      "title": "Недвижимость",
+      "links": [
+        {"title": "Аренда комнат", "route": "arenda-komnat"},
+        {"title": "Аренда квартир", "route": "arenda-kvartir"},
+        {"title": "Посуточная аренда квартир, домов и дач", "route": "arenda-posutochno"},
+        {"title": "Аренда домов (хавли) и дач", "route": "arenda-domov-havli-i-dach"},
+        {"title": "Аренда офисов и помещений", "route": "arenda-ofisov-i-pomeschenij"},
+        {"title": "Продажа квартир", "route": "prodazha-kvartir"},
+        {"title": "Продажа домов (хавли) и дач", "route": "prodazha-domov-havli-i-dach"},
+        {"title": "Продажа, аренда построек с земельным участком", "route": "prodazha-zemelnyih-uchastkov"},
+        {"title": "Продажа, аренда гаражей и стоянок", "route": "prodazha-garazhej-i-stoyanok"},
+        {"title": "Продажа офисов и помещений", "route": "prodazha-ofisov-i-pomeschenij"},
+        {"title": "Продажа отдельно стоящих зданий", "route": "otdelno-stoyaschee-zdanie"},
+        {"title": "Продажа, аренда вагончиков, бытовок, вагон-домов", "route": "vagonchik-bitovka"}
+      ]
+    },
+    "transport" : {
+      "src": "https://cdn.somon.tj/media/motors.png",
+      "title": "Транспорт",
+      "links": [
+        {"title": "Легковые автомобили", "route": "legkovyie-avtomobili"},
+        {"title": "Мото транспорт", "route": "moto-transport"},
+        {"title": "Коммерческий транспорт", "route": "spetstehnika-i-kommercheskij-transport"},
+        {"title": "Прицепы и контейнеры", "route": "pricepi-i-konteineri"},
+        {"title": "Запчасти и принадлежности", "route": "avtozapchasti-i-prinadlezhnosti"},
+        {"title": "Автосервис и ремонт", "route": "avtoservis-i-remont"},
+        {"title": "Другой транспорт", "route": "drugoj-transport"}
+      ]
+    },
+    "vakansii" : {
+      "src": "https://cdn.somon.tj/media/jobs.png",
+      "title": "Вакансии",
+      "links": [
+        {"title": "Административный персонал", "route": "cekretariat--aho"},
+        {"title": "HR, кадры", "route": "hr--kadryi"},
+        {"title": "IT, телекомб компьютеры", "route": "it--telekom--kompyuteryi"},
+        {"title": "Банки, страхование, лизинг", "route": "Banki-strahovanie-lizing"},
+        {"title": "Бухгалтерия, финансы, юристы", "route": "buhgalteriya--yuristyi--finansyi"},
+        {"title": "Государственный службы", "route": "gosudarstvennie-slujbi"},
+        {"title": "Домашний персонал, обслуживание", "route": "domashnij-personal--obsluzhivanie"},
+        {"title": "Красота, фитнес, спорт", "route": "krasota--fitnes--sport"},
+        {"title": "Маркетинг, реклама, дизайн", "route": "marketing--reklama--dizajn"},
+        {"title": "Медицина, фармация", "route": "meditsina--farmatsiya"},
+        {"title": "Начало карьеры, студенты", "route": "nachalo-kareryi--studentyi"},
+        {"title": "Образование, культура, искусство", "route": "obrazovanie--kultura--iskusstvo"},
+        {"title": "Охрана, безопасность", "route": "ohrana--bezopasnost"},
+        {"title": "Продажи, розничная торговля", "route": "prodazhi--roznichnaya-torgovlya"},
+        {"title": "Производство, энергетика", "route": "proizvodstvo--energetika"},
+        {"title": "Рестораторы, повара, официанты", "route": "restoratori--povara--ofitsianti"},
+        {"title": "Рабочий персонал, разнорабочие", "route": "rabochi-personal-raznorabochii"},
+        {"title": "Руководители", "route": "/rukovoditeli"},
+        {"title": "СМИ, издательство", "route": "smi--izdatelstvo"},
+        {"title": "Строительство, недвижимость", "route": "stroitelstvo-nedvizhimost"},
+        {"title": "Транспорт, логистика, склад", "route": "transport--logistika--sklad"},
+        {"title": "Туризм, гостиницы, развлечения", "route": "turizm--gostinitsi--razvlecheniya"},
+        {"title": "Частичная занятость", "route": "chastichnaya-zanyatost"},
+        {"title": "Работа за рубежом", "route": "rabota-za-rubezhom"},
+        {"title": "Кадровые агентства", "route": "kadrovie-agenstva"},
+        {"title": "Другие сферы занятий", "route": "drugie-sferi-zanyatij"}
+      ]
+    },
+    "telefoni-i-svyaz" : {
+      "src": "https://cdn.somon.tj/media/phones.png",
+      "title": "Телефоны и свазь",
+      "links": [
+        {"title": "Мобильные телефоны", "route": "mobilniye-telefoni"},
+        {"title": "Аксессуары для телефонов", "route": "aksesuari-dlya-telefonov"},
+        {"title": "Ремонт и сервис телефонов", "route": "remont-i-servis-telefonov"},
+        {"title": "Запчасти и инструменты для телефонов", "route": "zapchasti-i-instrumenti-dluya-telefonov"},
+        {"title": "Стационарные телефоны", "route": "statsionarniye-telefoni"},
+        {"title": "Другая техника связи", "route": "drugaya-tehnika-svyazi"}
+      ]
+    },
+    "detskij-mir" : {
+      "src": "https://cdn.somon.tj/media/kids.png",
+      "title": "Детский мир",
+      "links": [
+        {"title": "Детская одежда", "route": "detskaya-odezhda"},
+        {"title": "Детская обувь", "route": "detskaya-obuv"},
+        {"title": "Детская мебель", "route": "detskaya-mebel"},
+        {"title": "Детские коляски, качели", "route": "detskie-kolyaski--kacheli"},
+        {"title": "Детские автокресла", "route": "detskie-avtokresla"},
+        {"title": "Детский транспорт", "route": "detskiy-transport"},
+        {"title": "Детские часы", "route": "detskie-chasi"},
+        {"title": "Игрушки", "route": "igrushki"},
+        {"title": "Товары для мам", "route": "tovari-dlya-mam"},
+        {"title": "Товары для кормления", "route": "tovari-dlya-kormleniya"},
+        {"title": "Товары для школьников", "route": "tovari-dlya-shkolnikov"},
+        {"title": "Другие детские товары", "route": "drugie-detskiye-tovari"},
+        {"title": "Товары для детского купания", "route": "tovari-dlya-detskovo-kupaniya"},
+        {"title": "Постельные принадлежности", "route": "postelniye-prinadlezhnosti"}
+      ]
+    },
+    "odezhda-i-obuv" : {
+      "src": "https://cdn.somon.tj/media/clothes.png",
+      "title": "Одежда и личные вещи",
+      "links": [
+        {"title": "Мужская одежда", "route": "muzhskaya-odezhda"},
+        {"title": "Женская одежда", "route": "zhenskaya-odezhda"},
+        {"title": "Обувь", "route": "obuv"},
+        {"title": "Аксессуары, шарфы, головные уборы", "route": "aksessuari--sharfi--golovniye-ubori"},
+        {"title": "Парфюмерия и косметика", "route": "parfyumeriya-i-kosmetika"},
+        {"title": "Часы и украшения", "route": "chasi-i-ukrasheniya"},
+        {"title": "Для свадьбы", "route": "dlya-svadbi"},
+        {"title": "Одежда на прокат", "route": "odezhda-na-prokat"},
+        {"title": "Другие товары", "route": "drugie-tovari"},
+        {"title": "Потери и находки", "route": "poteri-i-nahodki"}
+      ]
+    },
+    "kompyuteri-i-orgtehnika" : {
+      "src": "https://cdn.somon.tj/media/comps.png",
+      "title": "Компютеры и оргтехника",
+      "links": [
+        {"title": "Ноутбуки", "route": "noutbuki"},
+        {"title": "Персональные компьютеры", "route": "personalniye-kompyuteri"},
+        {"title": "Игровые приставки", "route": "igroviye-pristavki"},
+        {"title": "Программы и игры", "route": "programmi-i-igri"},
+        {"title": "Планшеты и букридеры", "route": "plansheti-i-bukrideri"},
+        {"title": "Принтеры и сканеры", "route": "printeri-i-skaneri"},
+        {"title": "Мониторы и проекторы", "route": "monitori-i-proektori"},
+        {"title": "Модемы и сетевое оборудование", "route": "modemi-i-setevoe-oboroduvanie"},
+        {"title": "Комплектующие и аксессуары", "route": "komplektuyushie-i-aksessuari"},
+        {"title": "Ремонт", "route": "remont"},
+        {"title": "Серверы", "route": "serveri"},
+        {"title": "Другая техника", "route": "drugaya-tehnika"}
+      ]
+    },
+    "elektronika-i-tehnika" : {
+      "src": "https://cdn.somon.tj/media/electro.png",
+      "title": "Электроника и бытовая техника",
+      "links": [
+        {"title": "Фото и видеокамеры", "route": "foto-i-videokameri"},
+        {"title": "TV, DVD и видео", "route": "tv--dvd-i-video"},
+        {"title": "Аудио и стерео", "route": "audio-i-stereo"},
+        {"title": "Техника для дома и кухни", "route": "tehnika-dlya-doma-i-kuhni"},
+        {"title": "Для личного ухода", "route": "dlya-lichnovo-uhoda"},
+        {"title": "Принадлежности и аппараты для здоровья", "route": "prinadlezhnosti-i-apparati-dlya-zdorovya"},
+        {"title": "Аксессуары и комплектующие", "route": "aksessuari-i-komplektuyushie"},
+        {"title": "Электронные компоненты и радиодетали", "route": "elektronnie-komponenti-i-radiodetali"},
+        {"title": "Системы видеонаблюдения, охраны, Умный дом", "route": "sistema-videonablyudeniya--ohrani--umniy-dom"},
+        {"title": "Другая техника", "route": "drugaya-tehnika"},
+        {"title": "Климатическая техника", "route": "klimaticheskaya-tehnika"}
+      ]
+    },
+    "vse-dlya-doma" : {
+      "src": "https://cdn.somon.tj/media/house_.png",
+      "title": "Все для дома",
+      "links": [
+        {"title": "Мебель", "route": "mebel"},
+        {"title": "Текстиль и интерьер", "route": "tekstil-i-interyer"},
+        {"title": "Пищевые продукты", "route": "pisheviye-produkti"},
+        {"title": "Посуда и кухонная утварь", "route": "posuda-i-kuhonnaya-utvar"},
+        {"title": "Хозяйственный инвентарь и бытовая химия", "route": "hozyaystvenniy-inventar-i-ibitovaya-himiya"},
+        {"title": "Сад и огород", "route": "sad-i-ogorod"},
+        {"title": "Сейфы", "route": "seyfi"},
+        {"title": "Канцтовары", "route": "kanstovari"},
+        {"title": "Другие товары для дома", "route": "drugie-tovari-dlya-doma"},
+        {"title": "Товары для праздников", "route": "tovari-dlya-prazdnikov"}
+      ]
+    },
+    "stroitelstvo-syrye-i-remont" : {
+      "src": "https://cdn.somon.tj/media/services.png",
+      "title": "Строительство, сырье и ремонт",
+      "links": [
+        {"title": "Электроинструмент", "route": "elektroinstrument"},
+        {"title": "Ручной инструмент", "route": "ruchnoy-instrument"},
+        {"title": "Строительные и отделочные материалы", "route": "stroitelniye-i-otdelochniye-materiali"}
+      ]
+    },
+    "hobbi" : {
+      "src": "https://cdn.somon.tj/media/hobbies.png",
+      "title": "Хобби, музыка и спорт",
+      "links": [
+        {"title": "Спорт и инвентарь", "route": "sport-i-inventar"},
+        {"title": "Велосипеды и принадлежности", "route": "velosipedi-i-prinadlezhnosti"},
+        {"title": "Музыкальные инструменты", "route": "muzikalniye-instrumenti"},
+        {"title": "Книги и журналы", "route": "knigi-i-zhurnali"},
+        {"title": "CD, DVD, пластинки и кассеты", "route": "cd--dvd--plastinki-i-kasseti"},
+        {"title": "Антиквариат и коллекции", "route": "antikvariat-i-kollektsii"},
+        {"title": "Билеты", "route": "bileti"}
+      ]
+    },
+    "zhivotnyie-i-rasteniya" : {
+      "src": "https://cdn.somon.tj/media/pets.png",
+      "title": "Животные и растения",
+      "links": [
+        {"title": "Собаки", "route": "sobaki"},
+        {"title": "Кошки", "route": "koshki"},
+        {"title": "Кролики", "route": "kroliki"},
+        {"title": "Птицы", "route": "ptitsi"},
+        {"title": "Вязка", "route": "vyazka"},
+        {"title": "Садовые растения", "route": "sadoviye-rasteniya"},
+        {"title": "Сельхоз животные", "route": "selhoz-zhivotnie"},
+        {"title": "Аквариумные", "route": "akvariumnie"},
+        {"title": "Комнатные растения", "route": "komnatnie-rasteniya"},
+        {"title": "Товары для животных", "route": "tovari-dlya-zhivotnih"},
+        {"title": "Другие животные", "route": "drugie-zhivotnie"},
+        {"title": "Отдам даром", "route": "otdam-darom"},
+        {"title": "Утерянные животные", "route": "uteryannie-zhivotnie"},
+        {"title": "Корм для животных", "route": "korm-dlya-zhivotnih"}
+      ]
+    },
+    "biznes-i-uslugi" : {
+      "src": "https://cdn.somon.tj/media/business2.png",
+      "title": "Услуги",
+      "links": [
+        {"title": "Дезинсекторы", "route": "dezinsektori"},
+        {"title": "Для праздников и мероприятий", "route": "dlya-prazdnikov-i-meropriyatiy"},
+        {"title": "Интернет и IT услуги", "route": "internet-i-it-uslugi"},
+        {"title": "Кулинария", "route": "kulinariya"},
+        {"title": "Красота", "route": "krasota"},
+        {"title": "Няни и сиделки", "route": "nyani-i-sidelki"},
+        {"title": "Перевозки и аренда транспорта", "route": "perevozki-i-arenda-transporta"},
+        {"title": "Прокат товаров", "route": "prokat-tovarov"},
+        {"title": "Рекламные услуги и полиграфия", "route": "reklamnie-uslugi-i-poligrafiya"},
+        {"title": "Ремонт и установка бытовой техники", "route": "remont-i-ustanovka-bitovoy-tehniki"},
+        {"title": "Риелторские услуги", "route": "rieltorskiye-uslugi"},
+        {"title": "Строительные и ремонтные услуги", "route": "stroitelniye-i-remontnie-uslugi"},
+        {"title": "Туризм и отдых", "route": "turizm-i-otdih"},
+        {"title": "Уборка и чистка", "route": "uborka-i-chistka"},
+        {"title": "Услуги переводчиков", "route": "uslugi-perevodchika"},
+        {"title": "Установка оборудования", "route": "ustanovka-oboroduvaniya"},
+        {"title": "Учебные курсы и обучение", "route": "uchebnie-kursi-i-obuchenie"},
+        {"title": "Финансы, кредиты", "route": "finansi--krediti"},
+        {"title": "Фото и видеосъёмка", "route": "foto-i-videosyomka"},
+        {"title": "Юридические услуги", "route": "yuridicheskie-uslugi"},
+        {"title": "Handmade и рукоделие", "route": "handmade-i-rukodelie"},
+        {"title": "Другие услуги", "route": "drugie-uslugi"}
+      ]
+    },
+    "vsyo-dlya-biznesa" : {
+      "src": "https://cdn.somon.tj/media/business.png",
+      "title": "Все для бизнеса",
+      "links": [
+        {"title": "Бизнес на продажу", "route": "biznes-na-prodazhu"},
+        {"title": "Оборудование", "route": "oboroduvanie"},
+        {"title": "Сырьё и материалы для бизнеса", "route": "sirye-i-materiali-dlya-biznesa"},
+        {"title": "Готовый бизнес в аренду", "route": "gotoviy-biznes-v-arendu"}
+      ]
+    },
+    "otdam-darom" : {
+      "src": "https://cdn.somon.tj/media/free.png",
+      "title": "Отдам даром",
+      "links": []
+    }
+}
