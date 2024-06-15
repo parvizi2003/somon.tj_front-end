@@ -21,7 +21,7 @@
       "src": "https://cdn.somon.tj/media/motors.png",
       "title": "Транспорт",
       "links": [
-        {"title": "Легковые автомобили", "route": "legkovyie-avtomobili"},
+        {"title": "Легковые автомобили", "route": "legkovie-avtomobili"},
         {"title": "Мото транспорт", "route": "moto-transport"},
         {"title": "Коммерческий транспорт", "route": "spetstehnika-i-kommercheskij-transport"},
         {"title": "Прицепы и контейнеры", "route": "pricepi-i-konteineri"},
@@ -64,7 +64,7 @@
     },
     "telefoni-i-svyaz" : {
       "src": "https://cdn.somon.tj/media/phones.png",
-      "title": "Телефоны и свазь",
+      "title": "Телефоны и связь",
       "links": [
         {"title": "Мобильные телефоны", "route": "mobilniye-telefoni"},
         {"title": "Аксессуары для телефонов", "route": "aksesuari-dlya-telefonov"},

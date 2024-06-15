@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Search.css";
 import cities from "../../content/cities.json";
 import Dropdown from "../dropdown/Dropdown";
 import { formattedNum } from "../../Utils/Utils";
+import axios from "../../axios";
 
 function Search() {
   const [inputValue, setInputValue] = useState("");
   const [selectValue, setSelectValue] = useState(cities[0]);
-  let num = "123456789";
+  const [postsCount, setPostsCount] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("/postsCount")
+      .then((res) => setPostsCount(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="search">
@@ -21,7 +29,9 @@ function Search() {
             <input
               name="q"
               type="text"
-              placeholder={formattedNum(num) + " объявлений радом"}
+              placeholder={
+                formattedNum(String(postsCount)) + " объявлений радом"
+              }
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />

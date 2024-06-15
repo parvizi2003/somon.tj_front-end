@@ -16,12 +16,11 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:category" element={<CategoryPage />} />
-        <Route path="/:category/:subCategory" element={<CategoryPage />} />
         <Route path="/adv/:id" element={<Post />} />
         <Route path="/add-post" element={<AddPost />} />
         <Route path="/profile/login" element={<Login />} />
         <Route path="/profile/register" element={<Register />} />
+        <Route path="/:category" element={<CategoryPage />} />
       </Routes>
       <Footer />
     </>

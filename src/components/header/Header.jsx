@@ -1,9 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import axios from "../../axios";
 
 export default function Header() {
-  const userData = false;
+  const [userData, setUserData] = React.useState(false);
+
+  React.useEffect(() => {
+    if (window.localStorage.getItem("token")) {
+      axios
+        .get("/auth/me")
+        .then((user) => setUserData(user.data))
+        .catch((err) => console.log(err));
+    }
+  }, [window.localStorage.getItem("token")]);
+
   return (
     <header className="header">
       <div className="container">
@@ -23,9 +34,16 @@ export default function Header() {
                 </>
               )}
               <div className="user-menu__dropdown">
-                <Link to="/profile/login">Вход</Link>
-                <Link to="/profile/posts">Мои объявления</Link>
-                <Link to="/profile/settings">Мои настройки</Link>
+                {!userData && (
+                  <Link
+                    to="/profile/login"
+                    className="user-menu__dropdown-login"
+                  >
+                    Вход
+                  </Link>
+                )}
+                <Link className="user-menu__dropdown-link">Мои объявления</Link>
+                <Link className="user-menu__dropdown-link">Мои настройки</Link>
               </div>
             </div>
             <Link to="/profile/favourites" className="favourites"></Link>

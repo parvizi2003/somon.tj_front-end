@@ -4,20 +4,55 @@ import styles from "./AddPost.module.css";
 import categories from "../../content/categories.json";
 import cities from "../../content/cities.json";
 
-import AddPostInput from "./AddPostInput";
+import { useNavigate } from "react-router-dom";
+import axios from "../../axios";
 
 export default function AddPost() {
-  const [category, setCategory] = React.useState();
-  const [subCategory, setSubCategory] = React.useState();
+  const [formData, setFormData] = React.useState({
+    title: "",
+    description: "",
+    price: "",
+    city: "",
+    images: [],
+    features: {},
+    tags: [],
+    bargain: false,
+  });
 
-  function handleClick(categoryItem) {
-    category !== categoryItem && setSubCategory(undefined);
-    setCategory(categoryItem);
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    // if (!window.localStorage.getItem("token")) {
+    //   navigate("/profile/login");
+    // }
+    console.log(formData);
+  }, [formData]);
+
+  function handleChange(e) {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(e.target);
+  async function handleChangeFile(e) {
+    try {
+      const formData1 = new FormData();
+      const file = e.target.files[0];
+      formData1.append("image", file);
+      const image = await axios.post("/upload", formData1);
+
+      setFormData((prev) => {
+        const copy = prev.images;
+        copy.push("http://localhost:4444" + image.data.url);
+        return { ...prev, images: copy };
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function handleSubmit() {
+    axios
+      .post("/add-post", formData)
+      .then(() => navigate("/"))
+      .catch((err) => console.log(err));
   }
   return (
     <main className={styles.addPost}>
@@ -29,68 +64,130 @@ export default function AddPost() {
           </p>
           <div className={styles.selector}>
             <ul style={styles.categories}>
-              {Object.keys(categories).map((categoryItem) => (
+              {Object.keys(categories).map((category) => (
                 <li
-                  key={categoryItem}
+                  key={category}
                   className={`${styles.list__item} ${
-                    categoryItem === category ? styles.selected : ""
+                    formData.tags[0] === category ? styles.selected : ""
                   }`}
-                  onClick={() => handleClick(categoryItem)}
+                  onClick={() =>
+                    setFormData((prev) => {
+                      return { ...prev, tags: [category] };
+                    })
+                  }
                 >
-                  {categories[categoryItem].title}
+                  {categories[category].title}
                 </li>
               ))}
             </ul>
 
             <ul style={styles.subCategories}>
-              {category &&
-                Object.values(categories[category].links).map(
-                  (subCategoryItem) => (
-                    <li
-                      key={subCategoryItem.route}
-                      className={`${styles.list__item} ${
-                        subCategoryItem.route === subCategory
-                          ? styles.selected
-                          : ""
-                      }`}
-                      onClick={() => setSubCategory(subCategoryItem.route)}
-                    >
-                      {subCategoryItem.title}
-                    </li>
-                  )
-                )}
+              {formData.tags[0] &&
+                categories[formData.tags[0]].links.map((link) => (
+                  <li
+                    key={link.route}
+                    className={`${styles.list__item} ${
+                      formData.tags[1] === link.route ? styles.selected : ""
+                    }`}
+                    onClick={() =>
+                      setFormData((prev) => {
+                        const updatedTags = [...prev.tags];
+                        updatedTags[1] = link.route;
+                        return { ...prev, tags: updatedTags };
+                      })
+                    }
+                  >
+                    {link.title}
+                  </li>
+                ))}
             </ul>
           </div>
         </section>
-        <section className={styles.normal}>
-          <form
-            action="/"
-            className={styles.form}
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
+        {formData.tags[1] && (
+          <section className={styles.normal}>
             <label className={styles.label}>
               <span className={styles.label__text}>Заголовок:</span>
-              <AddPostInput className={styles.input} />
+              <input
+                type="text"
+                className={styles.input}
+                name="title"
+                value={formData.title}
+                onChange={(e) => handleChange(e)}
+              />
             </label>
             <label className={styles.label}>
               <span className={styles.label__text}>Цена:</span>
-              <AddPostInput className={styles.input} />
+              <input
+                type="text"
+                className={styles.input}
+                name="price"
+                value={formData.price}
+                onChange={(e) => handleChange(e)}
+                onInput={(e) =>
+                  (e.target.value = e.target.value.replace(/[^0-9]/g, ""))
+                }
+              />
             </label>
             <label className={styles.label}>
               <span className={styles.label__text}>Фотографии:</span>
-              <input type="file" accept="image/*" hidden />
+              <input
+                type="file"
+                accept="image/*"
+                hidden
+                onChange={(e) => handleChangeFile(e)}
+              />
               <div className={styles.imageBlock}></div>
+              {formData.images.length !== 0 &&
+                formData.images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={image}
+                    className={styles.imageBlock + " " + styles.image}
+                  />
+                ))}
+            </label>
+            <label className={styles.label}>
+              <span className={styles.label__text}>Торг:</span>
+              <input
+                type="checkbox"
+                className={styles.checkbox}
+                name="bargain"
+                checked={formData.bargain}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    bargain: e.target.checked,
+                  }))
+                }
+              />
             </label>
             <label className={styles.label}>
               <span className={styles.label__text}>Описание:</span>
-              <textarea className={styles.input + " " + styles.textarea} />
+              <textarea
+                className={styles.input + " " + styles.textarea}
+                name="description"
+                value={formData.description}
+                onChange={(e) => handleChange(e)}
+              />
             </label>
             <label className={styles.label}>
               <span className={styles.label__text}>Город:</span>
-              <select className={styles.input}>
-                {cities.map((city) => (
+              <select
+                name="city"
+                className={styles.input}
+                value={formData.city}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    [e.target.name]: e.target.value,
+                  }))
+                }
+              >
+                <option value="" hidden>
+                  Выберите из списка
+                </option>
+                {cities.slice(1).map((city) => (
                   <option key={city.route}>{city.name}</option>
                 ))}
               </select>
@@ -99,9 +196,10 @@ export default function AddPost() {
               type="submit"
               value="Подать объявление"
               className={styles.submit}
+              onClick={handleSubmit}
             />
-          </form>
-        </section>
+          </section>
+        )}
       </div>
     </main>
   );

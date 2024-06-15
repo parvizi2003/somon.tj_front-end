@@ -1,111 +1,162 @@
 import React, { useState } from "react";
-import "./auth.css";
+import styles from "./Auth.module.css";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "../../axios";
 
 export default function Register() {
-  const [values, setValues] = useState({
+  const [formData, SetFormData] = useState({
     name: "",
+    phone: "",
     password: "",
     confirmPassword: "",
     isAgree: false,
-    disabled: false,
   });
+  const [errors, setErrors] = useState({
+    name: false,
+    phone: false,
+    password: false,
+    confirmPassword: false,
+    isAgree: false,
+  });
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    let noErrors = true;
+    Object.keys(formData).map((elem) => {
+      if (!formData[elem]) {
+        setErrors((prev) => ({ ...prev, [elem]: true }));
+        noErrors = false;
+        console.log(noErrors);
+      }
+    });
+    if (noErrors) {
+      axios
+        .post("/auth/register", formData)
+        .then((res) => {
+          window.localStorage.setItem("token", res.data.token);
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
+    }
+  }
 
   function handleChange(e) {
-    setValues((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-
-    if (
-      values.name.length !== 0 &&
-      values.password.length !== 0 &&
-      values.confirmPassword.length !== 0
-    ) {
-      setValues((prev) => ({ ...prev, disabled: false }));
-    }
-    console.log(values);
-  }
-  function handleCheck(e) {
-    let disabled;
-    e.target.checked ? (disabled = false) : (disabled = true);
-
-    setValues((prev) => ({
-      ...prev,
-      isAgree: e.target.checked,
-      disabled: disabled,
-    }));
+    SetFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
   function handleBlur(e) {
-    e.target.value.length === 0 &&
-      setValues((prev) => ({ ...prev, disabled: true }));
+    setErrors((prev) => ({
+      ...prev,
+      [e.target.name]: Boolean(!e.target.value),
+    }));
   }
-  function handleSubmit(e) {
-    if (
-      values.name.length === 0 ||
-      values.password.length === 0 ||
-      values.confirmPassword.length === 0 ||
-      values.isAgree === false
-    ) {
-      setValues((prev) => ({ ...prev, disabled: true }));
-    }
-  }
-
+  React.useEffect(() => {
+    console.log(errors);
+  }, [errors]);
   return (
-    <section className="auth">
+    <section className={styles.auth}>
       <div className="container">
-        <h1 className="auth__title">Регистрация</h1>
-        <form method="post" action="/auth/login" className="auth__form">
-          <label className="auth__label">
-            <span className="auth__label-text">Ваш логин</span>
+        <h1 className={styles.title}>Регистрация</h1>
+        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+          <label className={styles.label}>
+            <span className={styles.label_text}>Ваш логин</span>
             <input
               type="text"
-              className="auth__form-input"
-              id="name"
+              className={styles.input}
+              name="name"
+              value={formData.name}
               onChange={(e) => handleChange(e)}
               onBlur={(e) => handleBlur(e)}
             />
+            {errors.name && <p className={styles.error}>Введите имя</p>}
           </label>
-          <label className="auth__label">
-            <span className="auth__label-text">Ваш пароль</span>
+
+          <label className={styles.label}>
+            <span className={styles.label_text}>Ваш номер телефона</span>
+            <input
+              type="text"
+              className={styles.input}
+              name="phone"
+              value={formData.phone}
+              onChange={(e) => handleChange(e)}
+              onBlur={(e) => handleBlur(e)}
+              maxLength={9}
+              onInput={(e) =>
+                (e.target.value = e.target.value.replace(/[^0-9]/g, ""))
+              }
+            />
+            {errors.phone && (
+              <p className={styles.error}>Введите номер телефона</p>
+            )}
+          </label>
+
+          <label className={styles.label}>
+            <span className={styles.label_text}>Ваш пароль</span>
             <input
               type="password"
-              className="auth__form-input"
-              id="password"
+              className={styles.input}
+              name="password"
+              autoComplete="on"
+              value={formData.password}
               onChange={(e) => handleChange(e)}
               onBlur={(e) => handleBlur(e)}
             />
+            {errors.password && <p className={styles.error}>Введите пароль</p>}
           </label>
-          <label className="auth__label">
-            <span className="auth__label-text">Подтвердите пароль</span>
+
+          <label className={styles.label}>
+            <span className={styles.label_text}>Введите пароль</span>
             <input
               type="password"
-              className="auth__form-input"
-              id="confirmPassword"
+              className={styles.input}
+              name="confirmPassword"
+              autoComplete="on"
+              value={formData.confirmPassword}
               onChange={(e) => handleChange(e)}
               onBlur={(e) => handleBlur(e)}
             />
+            {errors.confirmPassword && (
+              <p className={styles.error}>Подтвердите пароль</p>
+            )}
           </label>
-          <label className="auth__label checkbox-label">
-            <input
-              type="checkbox"
-              className="auth__form-checkbox"
-              id="isAgree"
-              checked={values.isAgree}
-              onClick={(e) => handleCheck(e)}
-            />
-            <span className="auth__label-checkbox-text">
-              Я согласен на обработку моих персональных данных, и подтверждаю,
-              что мне есть 18 лет
-            </span>
+
+          <label className={styles.checkbox_label + " " + styles.label}>
+            <div className={styles.checkbox_container}>
+              <input
+                type="checkbox"
+                className={styles.checkbox}
+                name="isAgree"
+                checked={formData.isAgree}
+                onChange={(e) => {
+                  SetFormData((prev) => ({
+                    ...prev,
+                    isAgree: e.target.checked,
+                  }));
+                  setErrors((prev) => ({ ...prev, isAgree: formData.isAgree }));
+                }}
+              />
+
+              <span className={styles.checkbox_label_text}>
+                Я согласен на обработку моих персональных данных, и подтверждаю,
+                что мне есть 18 лет
+              </span>
+            </div>
+            {errors.isAgree && (
+              <p className={styles.error}>
+                Вам необходимо согласиться с правилами и поставить галочку
+              </p>
+            )}
           </label>
-          <button
-            className="auth__form-submit"
-            onClick={(e) => handleSubmit(e)}
-            disabled={values.disabled}
-          >
-            Зарегистрироватся
-          </button>
+
+          <input
+            type="submit"
+            className={styles.submit}
+            value="Зарегистрироватся"
+            name="submit"
+          />
         </form>
-        <Link to={"/profile/login"} className="auth__redirect">
+        <Link to={"/profile/login"} className={styles.redirect}>
           Уже есть аккаунт?
         </Link>
       </div>

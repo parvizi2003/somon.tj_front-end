@@ -8,28 +8,20 @@ export default function Commodities() {
     <section className="commodities">
       <div className="container">
         <CategoryGallery
-          title={"Электромобили"}
+          title={"Автомобили"}
           route={"/transport"}
           gridColumns={6}
+          cardsCount={6}
         />
         <CategoryGallery
-          title={"Электромобили"}
-          route={"/transport"}
+          title={"Недвижимость"}
+          route={"/nedvizhimost"}
           gridColumns={6}
-        />
-        <CategoryGallery
-          title={"Электромобили"}
-          route={"/transport"}
-          gridColumns={6}
-        />
-        <CategoryGallery
-          title={"Электромобили"}
-          route={"/transport"}
-          gridColumns={6}
+          cardsCount={6}
         />
         <CategoryGallery
           title={"Новые объявления"}
-          route={"/transport"}
+          route={"/search"}
           gridColumns={4}
           cardsCount={8}
         />

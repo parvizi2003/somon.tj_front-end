@@ -1,63 +1,88 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./auth.css";
+import { Link, useNavigate } from "react-router-dom";
+import styles from "./Auth.module.css";
+import axios from "../../axios";
 
 export default function Login() {
-  const [values, setValues] = useState({
+  const [formData, SetFormData] = useState({
     name: "",
     password: "",
-    disabled: false,
   });
-  function handleChange(e) {
-    setValues((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-    if (values.name.length !== 0 && values.password.length !== 0) {
-      setValues((prev) => ({ ...prev, disabled: false }));
-    }
-    console.log(values);
-  }
-  function handleBlur(e) {
-    e.target.value.length === 0 &&
-      setValues((prev) => ({ ...prev, disabled: true }));
-  }
+  const [errors, setErrors] = useState({
+    name: false,
+    password: false,
+  });
+  const navigate = useNavigate();
+
   function handleSubmit(e) {
-    if (values.name.length === 0 || values.password.length === 0) {
-      setValues((prev) => ({ ...prev, disabled: true }));
+    e.preventDefault();
+    let noErrors = true;
+    Object.keys(formData).map((elem) => {
+      if (!formData[elem]) {
+        setErrors((prev) => ({ ...prev, [elem]: true }));
+        noErrors = false;
+      }
+    });
+    if (noErrors) {
+      axios
+        .post("/auth/login", formData)
+        .then((res) => {
+          window.localStorage.setItem("token", res.data.token);
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
     }
   }
+
+  function handleChange(e) {
+    SetFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
+  function handleBlur(e) {
+    setErrors((prev) => ({
+      ...prev,
+      [e.target.name]: Boolean(!e.target.value),
+    }));
+  }
+
   return (
-    <section className="auth">
+    <section className={styles.auth}>
       <div className="container">
-        <h1 className="auth__title">Вход</h1>
-        <form method="post" action="/auth/login" className="auth__form">
-          <label className="auth__label">
-            <span className="auth__label-text">Ваш логин</span>
+        <h1 className={styles.title}>Вход</h1>
+        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+          <label className={styles.label}>
+            <span className={styles.label_text}>Ваш логин</span>
             <input
+              name="name"
               type="text"
-              className="auth__form-input"
-              id="name"
+              className={styles.input}
+              value={formData.name}
               onChange={(e) => handleChange(e)}
               onBlur={(e) => handleBlur(e)}
             />
+            {errors.name && <p className={styles.error}>Введите имя</p>}
           </label>
-          <label className="auth__label">
-            <span className="auth__label-text">Ваш пароль</span>
+
+          <label className={styles.label}>
+            <span className={styles.label_text}>Ваш пароль</span>
             <input
+              name="password"
               type="password"
-              className="auth__form-input"
-              id="password"
+              className={styles.input}
+              autoComplete="on"
+              value={formData.password}
               onChange={(e) => handleChange(e)}
               onBlur={(e) => handleBlur(e)}
             />
+            {errors.password && <p className={styles.error}>Введите пароль</p>}
           </label>
-          <button
-            className="auth__form-submit"
-            disabled={values.disabled}
-            onClick={(e) => handleSubmit(e)}
-          >
-            Войти
-          </button>
+
+          <input type="submit" value="Войти" className={styles.submit} />
         </form>
-        <Link to={"/profile/register"} className="auth__redirect">
+        <Link to={"/profile/register"} className={styles.redirect}>
           Нет аккаунта?
         </Link>
       </div>
