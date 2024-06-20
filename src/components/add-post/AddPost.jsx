@@ -8,6 +8,13 @@ import { useNavigate } from "react-router-dom";
 import axios from "../../axios";
 
 export default function AddPost() {
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    if (!window.localStorage.getItem("token")) {
+      navigate("/profile/login");
+    }
+  }, []);
+
   const [formData, setFormData] = React.useState({
     title: "",
     description: "",
@@ -18,14 +25,6 @@ export default function AddPost() {
     tags: [],
     bargain: false,
   });
-
-  const navigate = useNavigate();
-  React.useEffect(() => {
-    // if (!window.localStorage.getItem("token")) {
-    //   navigate("/profile/login");
-    // }
-    console.log(formData);
-  }, [formData]);
 
   function handleChange(e) {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));

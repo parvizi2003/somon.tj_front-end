@@ -164,14 +164,23 @@
 .announcement__price {
     width: 310px;
     margin-left: -10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 0 20px 0 35px;
-    font-size: 20px;
-    line-height: 20px;
-    font-weight: bold;
-    line-height: 60px;
     background-image: url('https://somon.tj/static/images/show/price_bg.png');
     background-size: 100% 100%;
     background-position: unset;
+}
+.announcement__price_cost {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+}
+.announcement__price_bargain {
+    font-size: 15px;
+    line-height: 1;
+    color: #666;
 }
 .announcement__author-phone {
     display: flex;
@@ -186,10 +195,6 @@
     font-weight: bold;
     font-size: 20px;
     line-height: 21px;
-}
-.announcement__author-phone__subtext {
-    font-size: 13px;
-    line-height: 16px;
 }
 .announcement__whatsapp {
     font-weight: bold;

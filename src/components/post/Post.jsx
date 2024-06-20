@@ -114,7 +114,12 @@ function Post() {
               <div className="post__aside-container">
                 <div className="post__aside-top">
                   <div className="announcement__price">
-                    {formattedNum(String(post.price))} <b>c.</b>
+                    <div className="announcement__price_cost">
+                      {formattedNum(String(post.price))} <b> c.</b>
+                    </div>
+                    {post.bargain && (
+                      <span className="announcement__price_bargain">торг</span>
+                    )}
                   </div>
                   <div
                     className="announcement__author-phone"
@@ -122,16 +127,13 @@ function Post() {
                   >
                     <div className="announcement__author-phone-container">
                       <div className="announcement__author-phone__title">
-                        {showPhone ? post.userPhone : "Показать телефон"}
+                        {showPhone
+                          ? String(post.user.phone).replace(
+                              /(.{2})(.{3})/g,
+                              "$1 $2 "
+                            )
+                          : "Показать телефон"}
                       </div>
-                      {!showPhone && (
-                        <div className="announcement__author-subtext">
-                          {String(post.user.phone).replace(
-                            /(.{2})(.{3})/g,
-                            "$1 $2 "
-                          )}
-                        </div>
-                      )}
                     </div>
                   </div>
                   <Link
@@ -141,7 +143,7 @@ function Post() {
                     Whatsapp
                   </Link>
                   <Link
-                    to={`/messenger/${post.user._Id}`}
+                    to={`/messenger/${post.user._id}`}
                     className="announcement__author-message"
                   >
                     Начать чат
