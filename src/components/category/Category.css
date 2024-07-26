@@ -1,42 +1,41 @@
 .category {
-    padding: 10px 10px 0 0;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-    user-select: none;
-    text-decoration: none;
-    transition: all .3s;
-    position: relative;
+  padding: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  text-decoration: none;
+  transition: margin-bottom 0.3s;
+  position: relative;
 }
 .category.active {
-    padding-bottom: 7.5px;
-    background: #f0f0f0;
-
+  padding-bottom: 7.5px;
+  background: #f0f0f0;
 }
-.category:hover .category__title{
-    color: #f59413;
+.category:hover .category__title {
+  color: #f59413;
 }
 .category__img-container {
-    width: 52px;
-    height: 48px;
-    padding: 8px 10px;
+  width: 52px;
+  height: 48px;
+  padding: 8px 10px;
 }
 .category__img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 .category__title {
-    max-width: 78%;
-    font-weight: bold;
-    font-size: 18px;
-    color: #0093d3;
-    margin-top: 3px;
+  max-width: 78%;
+  font-weight: bold;
+  font-size: 18px;
+  color: #0093d3;
+  margin-top: 3px;
 }
 .all-posts-url {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

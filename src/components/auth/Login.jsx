@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./Auth.module.css";
 import axios from "../../axios";
 
@@ -12,12 +12,11 @@ export default function Login() {
     name: false,
     password: false,
   });
-  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
     let noErrors = true;
-    Object.keys(formData).map((elem) => {
+    Object.keys(formData).forEach((elem) => {
       if (!formData[elem]) {
         setErrors((prev) => ({ ...prev, [elem]: true }));
         noErrors = false;
@@ -28,7 +27,9 @@ export default function Login() {
         .post("/auth/login", formData)
         .then((res) => {
           window.localStorage.setItem("token", res.data.token);
-          navigate("/");
+          window.localStorage.setItem("userName", res.data.userData.name);
+          window.localStorage.setItem("userPhone", res.data.userData.phone);
+          window.location.href = "/";
         })
         .catch((err) => console.log(err));
     }

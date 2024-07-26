@@ -1,0 +1,21 @@
+.header {
+  background-color: #1976d2;
+  margin-bottom: 10px;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu_item {
+  padding: 0 20px;
+  line-height: 50px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.2s;
+}
+.menu_item:hover {
+  background: #1565c0;
+}

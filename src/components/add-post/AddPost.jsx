@@ -2,18 +2,23 @@ import React from "react";
 import styles from "./AddPost.module.css";
 
 import categories from "../../content/categories.json";
-import cities from "../../content/cities.json";
 
 import { useNavigate } from "react-router-dom";
 import axios from "../../axios";
 
 export default function AddPost() {
   const navigate = useNavigate();
+  const [cities, setCities] = React.useState();
   React.useEffect(() => {
     if (!window.localStorage.getItem("token")) {
       navigate("/profile/login");
     }
-  }, []);
+
+    axios
+      .get("/cities")
+      .then((res) => setCities(res.data))
+      .catch((err) => console.log(err));
+  }, [navigate]);
 
   const [formData, setFormData] = React.useState({
     title: "",
@@ -25,6 +30,10 @@ export default function AddPost() {
     tags: [],
     bargain: false,
   });
+
+  React.useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   function handleChange(e) {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -186,9 +195,12 @@ export default function AddPost() {
                 <option value="" hidden>
                   Выберите из списка
                 </option>
-                {cities.slice(1).map((city) => (
-                  <option key={city.route}>{city.name}</option>
-                ))}
+                {cities &&
+                  cities.slice(1).map((city) => (
+                    <option key={city._id} value={city._id}>
+                      {city.name}
+                    </option>
+                  ))}
               </select>
             </label>
             <input

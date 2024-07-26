@@ -1,241 +1,239 @@
 .post {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 .post__title {
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 40px;
-    word-wrap: break-word;
-    color: #000;
-    margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 40px;
+  word-wrap: break-word;
+  color: #000;
+  margin-bottom: 15px;
 }
 .post__meta {
-    width: 100%;
-    position: relative;
-    margin-bottom: 15px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
 }
 .add-favorites {
-    width: 36px;
-    height: 34px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    cursor: pointer;
-    z-index: 1;
-    background: url('https://somon.tj/static/images/favorites/fav/fav_gray.svg') no-repeat center / 36px;
+  width: 36px;
+  height: 34px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1;
+  background: url("https://somon.tj/static/images/favorites/fav/fav_gray.svg")
+    no-repeat center / 36px;
 }
 .add-favorites:hover {
-    background-image: url('https://somon.tj/static/images/favorites/fav/fav_hover.svg');
+  background-image: url("https://somon.tj/static/images/favorites/fav/fav_hover.svg");
 }
 .post__city {
-    line-height: 1.2em;
-    opacity: .6;
-    margin-bottom: 4px;
+  line-height: 1.2em;
+  opacity: 0.6;
+  margin-bottom: 4px;
 }
 .post__time {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 .post__number {
-    opacity: .6;
+  opacity: 0.6;
 }
 .post__img-swiper {
-    position: relative;
+  position: relative;
 }
 .swipe-arrow {
-    display: none;
-    width: 40px;
-    height: 50px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    z-index: 1;
-    background: no-repeat center center;
+  display: none;
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1;
+  background: no-repeat center center;
 }
 .swipe-arrow.active {
-    display: block;
+  display: block;
 }
 .swipe-left {
-    left: 0;
-    background-image: url('https://somon.tj/static/images/arrow_top_left.png');
+  left: 0;
+  background-image: url("https://somon.tj/static/images/arrow_top_left.png");
 }
 .swipe-right {
-    right: 0;
-    background-image: url('https://somon.tj/static/images/arrow_top.png');
+  right: 0;
+  background-image: url("https://somon.tj/static/images/arrow_top.png");
 }
 .post__img-container {
-    width: 100%;
-    height: 600px;
-    border-radius: 5px;
-    overflow: hidden;
-    text-align: center;
-    background: #e0e0e0;
-    margin-bottom: 5px;
-
+  width: 100%;
+  height: 600px;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  background: #e0e0e0;
+  margin-bottom: 5px;
 }
 .post__img {
-    max-width: 100%;
-    height: 100%;
-    object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .post__thumbnails {
-    display: flex;
-    gap: 2px;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 .post__thumbnail-container {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-    overflow: hidden;
-    cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
 }
-.post__thumbnail-container:hover, .post__thumbnail-container.active {
-    opacity: .3;
+.post__thumbnail-container:hover,
+.post__thumbnail-container.active {
+  opacity: 0.3;
 }
 .post__thumbnail {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .post__features {
-    column-count: 2;
-    column-gap: 0;
-    margin-bottom: 17px;
+  column-count: 2;
+  column-gap: 0;
+  margin-bottom: 17px;
 }
 .post__features-item {
-    padding: 10px 0;
-    line-height: 18px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    margin-right: 10px;
+  padding: 10px 0;
+  line-height: 18px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-right: 10px;
 }
 .post__feature-key {
-    color: #666;
-    padding-right: 5px;
+  color: #666;
+  padding-right: 5px;
 }
 .post__feature-value {
-    font-weight: bold;
+  font-weight: bold;
 }
 .post__description {
-    margin-bottom: 19px;
+  margin-bottom: 19px;
 }
 .after-content {
-    padding: 20px 0;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 15px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
 }
-.prev-next a{
-    font-size: 14px;
-    color: #0093de;
-    margin-right: 25px;
+.prev-next a {
+  font-size: 14px;
+  color: #0093de;
+  margin-right: 25px;
 }
 .prev-next a:hover {
-    color: #ea5e00;
+  color: #ea5e00;
 }
 .post__views {
-    font-size: 14px;
-    color: #666;
+  font-size: 14px;
+  color: #666;
 }
 .post__aside {
-    position: relative;
+  position: relative;
 }
 .post__aside-top {
-    display: block;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 21px;
+  color: #fff;
+  margin-bottom: 20px;
 }
 .post__aside-top > * {
-    width: 300px;
-    padding: 0 70px 0 25px;
-    border-radius: 5px;
-    min-height: 60px;
-    text-decoration: none;
-    background-position: 245px center;
-    background-size: 30px;
-    background-repeat: no-repeat;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 70px 0 25px;
+  border-radius: 5px;
+  min-height: 60px;
+  text-decoration: none;
+  background-position: 245px center;
+  background-size: 30px;
+  background-repeat: no-repeat;
+}
+.announcement__delete {
+  cursor: pointer;
+  background-image: url("/public/trash.svg");
+  background-color: #ea4300;
 }
 .announcement__price {
-    width: 310px;
-    margin-left: -10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 20px 0 35px;
-    background-image: url('https://somon.tj/static/images/show/price_bg.png');
-    background-size: 100% 100%;
-    background-position: unset;
+  width: 310px;
+  margin-left: -10px;
+
+  padding: 0 20px 0 35px;
+  background-image: url("https://somon.tj/static/images/show/price_bg.png");
+  background-size: 100% 100%;
+  background-position: unset;
 }
 .announcement__price_cost {
-    font-size: 20px;
-    line-height: 20px;
-    font-weight: bold;
+  color: #000;
 }
 .announcement__price_bargain {
-    font-size: 15px;
-    line-height: 1;
-    color: #666;
+  font-size: 15px;
+  line-height: 1;
+  color: #666;
 }
 .announcement__author-phone {
-    display: flex;
-    align-items: center;
-    color: #fff;
-    cursor: pointer;
-    background-color: #0086bf;
-    background-image: url('https://somon.tj/static/images/show/icon_phone.svg');
-    transition: .3s;
-}
-.announcement__author-phone__title {
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 21px;
+  cursor: pointer;
+  background-color: #0086bf;
+  background-image: url("https://somon.tj/static/images/show/icon_phone.svg");
+  transition: 0.3s;
 }
 .announcement__whatsapp {
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 60px;
-    color: #fff;
-    background-color: #00af01;
-    background-image: url('https://somon.tj/static/images/contacts/whatsapp.png');
+  color: #fff;
+  background-color: #00af01;
+  background-image: url("https://somon.tj/static/images/contacts/whatsapp.png");
 }
 .announcement__author-message {
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 60px;
-    color: #fff;
-    background-image: url('https://somon.tj/static/images/show/icon_chat.svg');
-    background-color: #ea5e00;
+  color: #fff;
+  background-image: url("https://somon.tj/static/images/show/icon_chat.svg");
+  background-color: #ea5e00;
 }
 .safety {
-    padding-top: 10px;    
-    font-size: 12px;
-    font-weight: bold;
-    color: #f66;
-    background-color: #fcd9d9;
-    background-image: url('https://somon.tj/static/images/sc_icon.svg');
-    background-size: 30px 27px;
+  line-height: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #f66;
+  background-color: #fcd9d9;
+  background-image: url("https://somon.tj/static/images/sc_icon.svg");
+  background-size: 30px 27px;
 }
 .post__aside-bottom {
-    padding-left: 25px;
+  padding-left: 25px;
 }
 .author__name {
-    font-size: 20px;
-    line-height: 22px;
-    overflow-wrap: break-word;
-    margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 22px;
+  overflow-wrap: break-word;
+  margin-bottom: 10px;
 }
-.author__registration-date, .author__other-posts, .complain {
-    display: inline-block;
-    font-size: 14px;
-    line-height: 14px;
+.author__registration-date,
+.author__other-posts,
+.complain {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 14px;
 }
-.author__other-posts, .complain {
-    color: #0093de;
-    margin-bottom: 10px;
+.author__other-posts,
+.complain {
+  color: #0093de;
+  margin-bottom: 10px;
 }

@@ -8,7 +8,6 @@ export default function LargeCard({ post, isLoading }) {
   if (isLoading) {
     return <LCSkeleton />;
   }
-  console.log(post);
   return (
     <Link to={`/adv/${post._id}`} className="largeCard">
       <div className="largeCard__img-container">
@@ -35,7 +34,7 @@ export default function LargeCard({ post, isLoading }) {
         <div className="largeCard__hint">
           <div className="largeCard__hint-dateNcity">
             <span>{new Date(post.createdAt).toLocaleDateString()}</span>
-            <span>{post.city}</span>
+            <span>{post.city.name}</span>
           </div>
           <div
             className="largeCard__add-favourite"

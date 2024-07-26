@@ -1,0 +1,10 @@
+.myPosts {
+  min-height: 60vh;
+}
+
+.cards {
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}

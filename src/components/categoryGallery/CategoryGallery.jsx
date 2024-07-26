@@ -15,9 +15,9 @@ export default function CategoryGallery({
 
   React.useEffect(() => {
     axios(`${route === "/search" ? "posts" : route}/?limit=${cardsCount}`)
-      .then((data) => setPosts(data.data))
+      .then((res) => setPosts(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [route, cardsCount]);
 
   const [onLeft, setOnLeft] = React.useState(false);
   const small = gridColumns === 6;

@@ -46,7 +46,7 @@ export default function MediumCard({ post, isLoading }) {
       <p className="mediumCard__name">{post.title}</p>
       <p className="mediumCard__features">{randomFeatures}</p>
       <p className="mediumCard__hint">
-        {new Date(post.createdAt).toLocaleDateString() + " | " + post.city}
+        {new Date(post.createdAt).toLocaleDateString() + " | " + post.city.name}
       </p>
     </Link>
   );

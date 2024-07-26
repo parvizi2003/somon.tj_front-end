@@ -4,27 +4,7 @@ import categories from "../../content/categories";
 import Category from "../category/Category";
 
 export default function Categories() {
-  const [active, setActive] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
-  function handleClick(index) {
-    const arr = active.map(() => false);
-    !active[index] && (arr[index] = true);
-    setActive(arr);
-  }
+  const [active, setActive] = useState();
 
   return (
     <section className="categories">
@@ -35,8 +15,8 @@ export default function Categories() {
               index={index}
               categoryData={categories[key]}
               categoryRoute={key}
-              onClick={() => handleClick(index)}
-              active={active[index]}
+              onClick={() => setActive(index)}
+              active={active === index}
             />
           </div>
         ))}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Auth.module.css";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "../../axios";
 
 export default function Register() {
@@ -19,16 +19,14 @@ export default function Register() {
     confirmPassword: false,
     isAgree: false,
   });
-  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
     let noErrors = true;
-    Object.keys(formData).map((elem) => {
+    Object.keys(formData).forEach((elem) => {
       if (!formData[elem]) {
         setErrors((prev) => ({ ...prev, [elem]: true }));
         noErrors = false;
-        console.log(noErrors);
       }
     });
     if (noErrors) {
@@ -36,7 +34,10 @@ export default function Register() {
         .post("/auth/register", formData)
         .then((res) => {
           window.localStorage.setItem("token", res.data.token);
-          navigate("/");
+          window.localStorage.setItem("userName", res.data.userData.name);
+          window.localStorage.setItem("userPhone", res.data.userData.phone);
+
+          window.location.href = "/";
         })
         .catch((err) => console.log(err));
     }
@@ -51,9 +52,6 @@ export default function Register() {
       [e.target.name]: Boolean(!e.target.value),
     }));
   }
-  React.useEffect(() => {
-    console.log(errors);
-  }, [errors]);
   return (
     <section className={styles.auth}>
       <div className="container">

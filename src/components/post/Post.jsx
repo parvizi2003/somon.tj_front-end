@@ -3,7 +3,7 @@ import "./Post.css";
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
 import CategoryGallery from "../categoryGallery/CategoryGallery";
 import { addToFavourites, formattedNum } from "../../Utils/Utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "../../axios";
 
@@ -12,13 +12,22 @@ function Post() {
   const [showPhone, setShowPhone] = useState(false);
   const { id } = useParams();
   const [post, setPost] = useState();
-
-  useState(() => {
+  const navigate = useNavigate();
+  useEffect(() => {
     axios
-      .get("/posts/" + id)
-      .then((post) => setPost(post.data))
+      .get(`/posts/${id}`)
+      .then((post) => {
+        setPost(post.data);
+      })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
+
+  function handleDelete() {
+    axios
+      .delete("/posts/" + id + "123")
+      .then(() => navigate("/"))
+      .catch((err) => console.log(err));
+  }
   return (
     <div className="post">
       {post && (
@@ -32,7 +41,7 @@ function Post() {
                   className="add-favorites"
                   onClick={(e) => addToFavourites(e)}
                 ></div>
-                <div className="post__city">{post.city}</div>
+                <div className="post__city">{post.city.name}</div>
                 <div className="post__details">
                   <span className="post__time">
                     Опубликовано:{" "}
@@ -99,7 +108,9 @@ function Post() {
                     Следующая »
                   </Link>
                 </div>
-                <span className="post__views">Просмотров: {post.views}</span>
+                <span className="post__views">
+                  Просмотров: {post.viewsCount}
+                </span>
               </div>
               <div className="similars">
                 <CategoryGallery
@@ -113,6 +124,14 @@ function Post() {
             <aside className="post__aside">
               <div className="post__aside-container">
                 <div className="post__aside-top">
+                  {post.canDelete && (
+                    <div
+                      className="announcement__delete"
+                      onClick={handleDelete}
+                    >
+                      Удалить статью
+                    </div>
+                  )}
                   <div className="announcement__price">
                     <div className="announcement__price_cost">
                       {formattedNum(String(post.price))} <b> c.</b>
@@ -125,16 +144,12 @@ function Post() {
                     className="announcement__author-phone"
                     onClick={() => setShowPhone(true)}
                   >
-                    <div className="announcement__author-phone-container">
-                      <div className="announcement__author-phone__title">
-                        {showPhone
-                          ? String(post.user.phone).replace(
-                              /(.{2})(.{3})/g,
-                              "$1 $2 "
-                            )
-                          : "Показать телефон"}
-                      </div>
-                    </div>
+                    {showPhone
+                      ? String(post.user.phone).replace(
+                          /(.{2})(.{3})/g,
+                          "$1 $2 "
+                        )
+                      : "Показать телефон"}
                   </div>
                   <Link
                     to={`https://api.whatsapp.com/send?phone=+992${post.user.phone}&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%0A%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D1%81%D1%8F%20%D0%B2%D0%B0%D1%88%D0%B8%D0%BC%20%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%20%D0%BD%D0%B0%20Somon.%0A%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%3A%20https%3A//somon.tj/adv/${post.id}/`}

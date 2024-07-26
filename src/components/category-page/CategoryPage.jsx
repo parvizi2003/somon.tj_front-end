@@ -13,8 +13,11 @@ export default function CategoryPage() {
   const params = useParams();
   const [posts, setPosts] = React.useState();
   React.useEffect(() => {
-    axios.get("/" + params.category).then((post) => setPosts(post.data));
-  }, []);
+    axios
+      .get("/" + params.category)
+      .then((post) => setPosts(post.data))
+      .catch((err) => console.log(err));
+  }, [params.category]);
   const [toggleSwitch, setToggleSwitch] = React.useState(false);
 
   return (
@@ -62,7 +65,7 @@ export default function CategoryPage() {
             <div className="categoryPage__cards">
               {(posts ? posts : [...Array(5)]).map((post, index) =>
                 posts ? (
-                  <LargeCard key={index} post={post} />
+                  <LargeCard key={post._id} post={post} />
                 ) : (
                   <LargeCard key={index} isLoading={true} />
                 )

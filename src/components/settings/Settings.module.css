@@ -1,0 +1,46 @@
+.settings {
+  min-height: 420px;
+}
+.toggle_block {
+  padding: 15px 20px;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  border-top: none;
+}
+.toggle_block.active .content {
+  display: block;
+}
+.text {
+  font-size: 25px;
+  font-weight: bold;
+  color: #0093d3;
+}
+.toggle_block:hover .text {
+  color: #ea5e00;
+}
+.text::after {
+  display: inline-block;
+  content: "";
+  border: 5px solid transparent;
+  border-left: 5px solid #0093d3;
+  margin-left: 10px;
+}
+.content {
+  display: none;
+  margin-top: 20px;
+  padding-left: 100px;
+}
+.button {
+  display: block;
+  padding: 0 15px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+  line-height: 40px;
+  cursor: pointer;
+  background-color: #ea5e00;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3;
+  user-select: none;
+}
